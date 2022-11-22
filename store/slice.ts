@@ -1,22 +1,21 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export type initialStateProps = {
-  test: string;
+  isLoggedIn: boolean;
 };
 
 const {actions, reducer} = createSlice({
   name: 'store',
   initialState: {
-    test: 'test',
-    one: 'test',
+    isLoggedIn: false,
   },
   reducers: {
-    setTest: (state, {payload}: PayloadAction<string>) => ({
+    setAuth: (state, {payload}: PayloadAction<boolean>) => ({
       ...state,
-      test: payload,
+      isLoggedIn: payload,
     }),
   },
 });
 
-export const {setTest} = actions;
+export const {setAuth} = actions;
 export default reducer;

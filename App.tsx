@@ -9,8 +9,8 @@
  */
 
 import React from 'react';
-import {Text, View} from 'react-native';
-
+import {NavigationContainer} from '@react-navigation/native';
+import Root from './navigation/Root';
 import {Provider} from 'react-redux';
 import store from './store';
 
@@ -47,9 +47,9 @@ import store from './store';
 const App = () => {
   return (
     <Provider store={store}>
-      <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
-        <Text>App</Text>
-      </View>
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
     </Provider>
   );
 };

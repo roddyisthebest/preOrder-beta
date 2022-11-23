@@ -17,7 +17,11 @@ const Auth = () => (
       contentStyle: {backgroundColor: 'white'},
       presentation: 'card',
     }}>
-    <NativeStack.Screen name="Home" component={Home} />
+    <NativeStack.Screen
+      name="Home"
+      component={Home}
+      options={{headerShown: false}}
+    />
     <NativeStack.Screen name="Signin" component={Signin} />
     <NativeStack.Screen name="Signup" component={Signup} />
     <NativeStack.Screen name="SignupCheck" component={SignupCheck} />

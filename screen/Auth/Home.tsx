@@ -1,9 +1,83 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-const Home = () => (
-  <View style={{flex: 1}}>
-    <Text>Home Login</Text>
-  </View>
-);
+import {Dimensions} from 'react-native';
+import styled from 'styled-components/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {LoggedInParamList} from '../../navigation/Root';
+
+const Container = styled.SafeAreaView`
+  flex: 1;
+  margin: 20px;
+`;
+const ImageBackground = styled.ImageBackground<{height: number}>`
+  /* width: 100%; */
+  height: ${props => props.height}px;
+  justify-content: flex-end;
+  padding: 20px;
+`;
+
+const TitleText = styled.Text`
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+`;
+
+const SubTitleText = styled.Text`
+  color: #ffffffb0;
+  font-size: 15px;
+  font-weight: 300;
+`;
+
+const Button = styled.Pressable<{type: 'signin' | 'signup'}>`
+  height: 50px;
+  border-radius: 10px;
+  background-color: ${props => (props.type === 'signin' ? 'white' : '#42B883')};
+  border-width: 1px;
+  border-color: #42b883;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+const ButtonText = styled.Text<{color: string}>`
+  color: ${props => props.color};
+  font-size: 18px;
+  font-weight: 700;
+`;
+const Home = () => {
+  const navigation = useNavigation<NavigationProp<LoggedInParamList>>();
+
+  return (
+    <Container>
+      <ImageBackground
+        resizeMode="cover"
+        height={Dimensions.get('window').height * 0.7}
+        imageStyle={{borderRadius: 10}}
+        source={require('../../assets/img/nitish-goswami-zZuk1GV3V28-unsplash.jpeg')}
+        // borderRadius={30}
+      >
+        <TitleText>완벽한 하루를 위한</TitleText>
+        <TitleText style={{marginBottom: 22}}>단 한번의 클릭</TitleText>
+        <SubTitleText>
+          이제 수업시간에 허덕이면서 줄서서 기다리며 식당을 이용하지 말고
+          예약하고 음식을 받아가세요.
+        </SubTitleText>
+      </ImageBackground>
+      <Button
+        type="signup"
+        onPress={() => {
+          navigation.navigate('Auth', {screen: 'Signup'});
+        }}>
+        <ButtonText color={'white'}>가입하기</ButtonText>
+      </Button>
+      <Button
+        type="signin"
+        onPress={() => {
+          navigation.navigate('Auth', {screen: 'Signin'});
+        }}>
+        <ButtonText color={'#42B883'}>로그인</ButtonText>
+      </Button>
+    </Container>
+  );
+};
 
 export default Home;

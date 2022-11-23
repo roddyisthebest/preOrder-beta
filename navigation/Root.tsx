@@ -5,6 +5,16 @@ import {initialStateProps} from '../store/slice';
 import Auth from './Auth';
 import Stack from './Stack';
 
+export type LoggedInParamList = {
+  Stack: {
+    screen: '';
+    params: {id: number | null; uri: string | null} | null;
+  };
+  Auth: {
+    screen: 'Signin' | 'Signup' | 'signupCheck';
+  };
+};
+
 const Nav = createNativeStackNavigator();
 
 const Root = () => {

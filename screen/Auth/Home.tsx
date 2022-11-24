@@ -3,7 +3,7 @@ import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {LoggedInParamList} from '../../navigation/Root';
-
+import {Button, ButtonText} from '../../components/utils';
 const Container = styled.SafeAreaView`
   flex: 1;
   margin: 20px;
@@ -27,22 +27,6 @@ const SubTitleText = styled.Text`
   font-weight: 300;
 `;
 
-const Button = styled.Pressable<{type: 'signin' | 'signup'}>`
-  height: 50px;
-  border-radius: 10px;
-  background-color: ${props => (props.type === 'signin' ? 'white' : '#42B883')};
-  border-width: 1px;
-  border-color: #42b883;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-`;
-
-const ButtonText = styled.Text<{color: string}>`
-  color: ${props => props.color};
-  font-size: 18px;
-  font-weight: 700;
-`;
 const Home = () => {
   const navigation = useNavigation<NavigationProp<LoggedInParamList>>();
 
@@ -63,14 +47,16 @@ const Home = () => {
         </SubTitleText>
       </ImageBackground>
       <Button
-        type="signup"
+        type="default"
+        disable={false}
         onPress={() => {
           navigation.navigate('Auth', {screen: 'Signup'});
         }}>
         <ButtonText color={'white'}>가입하기</ButtonText>
       </Button>
       <Button
-        type="signin"
+        type="nxde"
+        disable={false}
         onPress={() => {
           navigation.navigate('Auth', {screen: 'Signin'});
         }}>

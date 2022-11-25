@@ -26,13 +26,13 @@ const InputLabel = styled.Text`
 const InputInstanceWrapper = styled.View`
   flex-direction: row;
   margin-top: 5px;
-  height: 40px;
   align-items: center;
 `;
 
 const InputInstance = styled.TextInput`
   font-size: 15px;
   flex: 1;
+  padding: 10px 0;
 `;
 
 const ShowContentsButton = styled.Pressable`
@@ -149,7 +149,7 @@ const Signin = () => {
         <NavigateLabel>계정이 없으신가요?</NavigateLabel>
         <NavigateButton
           onPress={() => {
-            navigation.navigate('Auth', {screen: 'Signup'});
+            navigation.navigate('Auth', {screen: 'Signup', params: null});
           }}>
           <NaviagateButtonText>가입하기</NaviagateButtonText>
         </NavigateButton>

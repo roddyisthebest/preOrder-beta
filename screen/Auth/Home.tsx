@@ -36,9 +36,7 @@ const Home = () => {
         resizeMode="cover"
         height={Dimensions.get('window').height * 0.7}
         imageStyle={{borderRadius: 10}}
-        source={require('../../assets/img/nitish-goswami-zZuk1GV3V28-unsplash.jpeg')}
-        // borderRadius={30}
-      >
+        source={require('../../assets/img/nitish-goswami-zZuk1GV3V28-unsplash.jpeg')}>
         <TitleText>완벽한 하루를 위한</TitleText>
         <TitleText style={{marginBottom: 22}}>단 한번의 클릭</TitleText>
         <SubTitleText>
@@ -50,7 +48,7 @@ const Home = () => {
         type="default"
         disable={false}
         onPress={() => {
-          navigation.navigate('Auth', {screen: 'Signup'});
+          navigation.navigate('Auth', {screen: 'Signup', params: null});
         }}>
         <ButtonText color={'white'}>가입하기</ButtonText>
       </Button>
@@ -58,7 +56,7 @@ const Home = () => {
         type="nxde"
         disable={false}
         onPress={() => {
-          navigation.navigate('Auth', {screen: 'Signin'});
+          navigation.navigate('Auth', {screen: 'Signin', params: null});
         }}>
         <ButtonText color={'#42B883'}>로그인</ButtonText>
       </Button>

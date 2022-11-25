@@ -11,7 +11,13 @@ export type LoggedInParamList = {
     params: {id: number | null; uri: string | null} | null;
   };
   Auth: {
-    screen: 'Signin' | 'Signup' | 'signupCheck';
+    screen: 'Signin' | 'Signup' | 'SignupCheck' | 'UnivList';
+    params: null | {
+      url: string;
+      name: string;
+      id: number;
+      domain: string;
+    };
   };
 };
 

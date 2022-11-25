@@ -3,6 +3,7 @@ import Home from '../screen/Auth/Home';
 import Signin from '../screen/Auth/Signin';
 import Signup from '../screen/Auth/Signup';
 import SignupCheck from '../screen/Auth/SignupCheck';
+import UnivList from '../screen/Auth/UnivList';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 
@@ -60,7 +61,7 @@ const Auth = () => {
         component={Signup}
         options={{
           headerShadowVisible: false,
-          headerTitle: '',
+          headerTitle: '가입하기',
           headerLeft: () => (
             <BackButton
               onPress={() => {
@@ -72,6 +73,7 @@ const Auth = () => {
         }}
       />
       <NativeStack.Screen name="SignupCheck" component={SignupCheck} />
+      <NativeStack.Screen name="UnivList" component={UnivList} />
     </NativeStack.Navigator>
   );
 };

@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Root from './navigation/Root';
 import {Provider} from 'react-redux';
 import store from './store';
-
+import {ToastProvider} from 'react-native-toast-notifications';
 // const Section: React.FC<
 //   PropsWithChildren<{
 //     title: string;
@@ -46,11 +46,13 @@ import store from './store';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
-    </Provider>
+    <ToastProvider normalColor={'#35495E'}>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </Provider>
+    </ToastProvider>
   );
 };
 
